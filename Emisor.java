@@ -7,7 +7,8 @@ public class Emisor {
         String binario = presentacion.codificarMensaje(mensaje);
 
         Enlace enlace = new Enlace();
-        String mensajeConIntegridad = enlace.calcularIntegridad(binario);
+        String binarioConParidad = enlace.calcularIntegridad(binario);
+
 
         Ruido ruido = new Ruido();
         String mensajeConRuido = ruido.aplicarRuido(mensajeConIntegridad);
