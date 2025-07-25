@@ -1,11 +1,9 @@
-// Ruido.java
 import java.util.Random;
 
 class Ruido {
     Random random = new Random();
-    double tasaError = 0.01; // 1% de error
 
-    public String aplicarRuido(String binario) {
+    public String aplicarRuido(String binario, double tasaError) {
         StringBuilder ruidoso = new StringBuilder();
         for (char bit : binario.toCharArray()) {
             if (random.nextDouble() < tasaError) {
