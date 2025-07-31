@@ -3,12 +3,14 @@ from Aplicacion import Aplicacion
 from Presentacion import Presentacion
 from Enlace import Enlace
 from Ruido import Ruido
+from Transmision import Transmision
 
 def main():
     aplicacion = Aplicacion()
     presentacion = Presentacion()
     enlace = Enlace()
     ruido = Ruido()
+    transmision = Transmision()
 
     mensaje = aplicacion.solicitar_mensaje()
     tasa_ruido = aplicacion.solicitar_tasa_de_ruido()
@@ -22,6 +24,10 @@ def main():
 
     mensaje_con_ruido = ruido.aplicar_ruido(binario_con_integridad, tasa_ruido)
     print(f"Mensaje final con ruido: {mensaje_con_ruido}")
+
+    payload = f"{algoritmo}|{mensaje_con_ruido}"
+    print(f"Payload a enviar: {payload}")
+    transmision.enviarInformacion(payload)
 
 if __name__ == "__main__":
     main()
