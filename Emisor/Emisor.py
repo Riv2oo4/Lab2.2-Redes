@@ -2,6 +2,8 @@ from Aplicacion import Aplicacion
 from Presentacion import Presentacion
 from Enlace import Enlace
 from Ruido import Ruido
+from Transmision import Transmision
+
 
 def main():
     aplicacion = Aplicacion()
@@ -21,5 +23,8 @@ def main():
     mensaje_con_ruido = ruido.aplicar_ruido(binario_con_paridad, tasa_ruido)
     print(f"Mensaje final con ruido: {mensaje_con_ruido}")
 
+    transmision = Transmision('localhost', 5000)
+    transmision.enviarInformacion(mensaje_con_ruido)
+    
 if __name__ == "__main__":
     main()
