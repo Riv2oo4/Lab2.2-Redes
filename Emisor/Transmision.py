@@ -1,7 +1,7 @@
 import socket
 
 class Transmision:
-    def __init__(self, host='localhost', puerto=5000):
+    def __init__(self, host='localhost', puerto=5001):
         self.host = host
         self.puerto = puerto
 
@@ -13,3 +13,6 @@ class Transmision:
                 print("Mensaje enviado exitosamente.")
         except Exception as e:
             print(f"Error al enviar el mensaje: {e}")
+
+
+
