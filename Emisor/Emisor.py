@@ -23,7 +23,7 @@ def main():
     mensaje_con_ruido = ruido.aplicar_ruido(binario_con_paridad, tasa_ruido)
     print(f"Mensaje final con ruido: {mensaje_con_ruido}")
 
-    transmision = Transmision('localhost', 5000)
+    transmision = Transmision('localhost', 5001)
     transmision.enviarInformacion(mensaje_con_ruido)
     
 if __name__ == "__main__":
