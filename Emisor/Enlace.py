@@ -20,19 +20,17 @@ class Enlace:
         return "".join(resultado)
 
     def _calcular_hamming(self, binario: str) -> str:
-        # Hamming code con paridad par
         m = len(binario)
         r = 0
         while 2**r < m + r + 1:
             r += 1
         n = m + r
-        code = ["0"] * (n + 1)  # 1-indexado
+        code = ["0"] * (n + 1)
         j = 0
         for i in range(1, n + 1):
             if (i & (i - 1)) != 0:
                 code[i] = binario[j]
                 j += 1
-        # Calcular bits de paridad
         for i in range(r):
             p = 2 ** i
             suma = 0
@@ -43,7 +41,6 @@ class Enlace:
         return "".join(code[1:])
 
     def _calcular_crc32(self, binario: str) -> str:
-        # Padding a múltiplos de 8 bits
         pad_len = (8 - len(binario) % 8) % 8
         binario_padded = "0" * pad_len + binario
         data = bytearray()

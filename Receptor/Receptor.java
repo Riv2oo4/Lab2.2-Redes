@@ -20,7 +20,6 @@ public class Receptor {
 
         switch (algoritmo) {
             case "paridad":
-                // Procesar bloques de 9 bits (8 datos + 1 paridad)
                 StringBuilder sbParidad = new StringBuilder();
                 for (int i = 0; i + 9 <= trama.length(); i += 9) {
                     String bloque = trama.substring(i, i + 9);
@@ -33,18 +32,15 @@ public class Receptor {
                 break;
 
             case "hamming":
-                // Tratar toda la trama como un solo bloque Hamming dinámico
                 Enlace.ResultadoHamming resultado = enlace.verificarYCorregirHamming(trama);
                 if (resultado.huboError) {
                     error = true;
                 }
-                // mensajeCorregido contiene sólo los bits de datos (sin los de paridad)
                 binarioLimpio = resultado.mensajeCorregido;
                 break;
 
             case "crc":
             case "crc32":
-                // Validar CRC-32 sobre toda la trama
                 if (!enlace.verificarCRC(trama)) {
                     error = true;
                 }

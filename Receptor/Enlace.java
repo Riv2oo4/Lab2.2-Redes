@@ -25,11 +25,10 @@ public class Enlace {
     }
     
     public String quitarCRC(String trama) {
-        int crcLength = 8; // ajusta si usas CRC-32 real
+        int crcLength = 8;
         return trama.substring(0, trama.length() - crcLength);
     }
     
-    // Hamming
     public static class ResultadoHamming {
         public boolean huboError;
         public String mensajeCorregido;
